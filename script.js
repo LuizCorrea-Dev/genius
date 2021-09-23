@@ -1,11 +1,15 @@
 let order = [];
 let clickedOrder = [];
 let score = 0;
+let scoreLocal = localStorage.getItem("score");
+let scoreMemo = document.getElementById("score").innerHTML = scoreLocal;
 let scoreNow = 0;
 let pointRecords = 0;
-let winnerName = "";
+let winnerLocal = localStorage.getItem("winner");
+let winnerName = document.getElementById("name").innerHTML = winnerLocal;
 let message = "";
 
+    
 //0 - verde
 //1 - vermelho
 //2 - amarelo
@@ -101,15 +105,17 @@ let nextLevel = () => {
     scoreNow = score -1;
     document.getElementById("scoreNow").innerHTML = scoreNow;
 
-
     shuffleOrder();
 }
 
 let winner = () => {  
     document.getElementById("score").innerHTML = scoreNow;
-   
+      
     var person = prompt("Novo Recorde, coloque seu nome: ");
     winnerName = person
+    // Salva dados na sessão
+    localStorage.setItem("winner", winnerName);
+
     return winnerName
 }
 
@@ -118,7 +124,14 @@ let winner = () => {
 let records = () => {
     if(pointRecords <= score){
         winner();
-        return  pointRecords = score -1; 
+        pointRecords = score -1
+        
+        // Salva dados na sessão
+        localStorage.setItem("score", pointRecords);
+
+        return pointRecords
+       
+ 
     } else {
        return pointRecords;
     }
@@ -143,7 +156,7 @@ function msnGameOver() {
 
 //funcao para game over
 let gameOver = () => { 
-    setTimeout(function(){
+    setTimeout(function(){        
         document.getElementById("score").innerHTML = pointRecords;
         msnGameOver()     
     }, 2000);
@@ -151,8 +164,8 @@ let gameOver = () => {
     setTimeout(function(){  
         order = [];
         records();
-    
-        document.getElementById("name").innerHTML = winnerName;
+
+        document.getElementById("name").innerHTML = winnerLocal;
         console.log(`records = ${pointRecords} , ${winnerName}`);
         clickedOrder = [];
     
@@ -162,11 +175,16 @@ let gameOver = () => {
 
 //funcao de inicio do jogo
 let playGame = () => {
+
+    document.getElementById("name").innerHTML = localStorage.getItem("winner");
+    document.getElementById("score").innerHTML = localStorage.getItem("score");
+
+
        
     message = ('Bem vindo ao Genius! Iniciando novo jogo!');
     document.getElementById("message").innerHTML = message;
 
-    var msg = document.querySelector("#message"); 
+    var msg = document.querySelector("#message");
     setTimeout(function(){ msg.style.display = 'none';}, 3000);
 
     setTimeout(function(){
@@ -194,8 +212,13 @@ red.onclick = () => click(1);
 yellow.onclick = () => click(2);
 blue.onclick = () => click(3);
 
+
+
 //inicio do jogo
 setTimeout(function () {
+
+    winnerLocal ? document.getElementById("name").innerHTML = winnerLocal : document.getElementById("name").innerHTML = "...";
+    scoreLocal ? document.getElementById("score").innerHTML = scoreLocal : document.getElementById("score").innerHTML = 0 ;
 
     playGame();
     
