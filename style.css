@@ -1,0 +1,208 @@
+body {
+    margin: 0;
+    padding: 0;    
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px;
+}
+.container-center {
+    overflow: hidden; 
+    height: 100vh;
+    width: 100vw;
+    /* adicionando imagem de fundo */
+    background: url('fundo.jpg');
+    background-size: cover;
+}   
+
+.main-game {
+    height: 70vh;
+    width: 100vw;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    position: relative;
+}
+
+.image-logo {
+    z-index: 2;
+    position: absolute;
+    float: center;    
+    align-items: center;
+    border-radius: 100%;
+    border: 4vh solid #000000;
+    background-color: rgb(207,213,213);
+    background-size: contain;
+    background-image:url("genius.png");
+    border-bottom-right-radius: 100%;
+    max-width: 25vh;
+    width: 20vh;
+    max-height: 25vh;
+    height: 20vh;
+}
+
+.genius {
+    display: grid;
+    grid-template-areas: 'verde vermelho''amarelo azul';
+    grid-gap: 40px;
+    border: 1px solid #000000;
+    background-color: #000000;
+    border-radius: 100%;    
+    margin: 1rem;
+    padding: 1rem;
+    max-width: 400px;
+    width: 90vh;
+    max-height: 400px;
+    height: 90vw;
+}
+.center {
+    grid-area: panelcenter;    
+    border-radius: 100%;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+.panel {  
+    display: table;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    width: 100vw;
+    height: 20vh;
+    background-color: #3714705f;
+}
+.p1 , .p2{
+    display: table-cell;
+    vertical-align: middle;    
+}
+.p3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.recorde {
+    margin-top: 1%;
+    text-align:left;
+
+    color:#f0bebe;
+}
+#score{
+    margin-left: 25px;
+    text-align:left;  
+    
+    color: #b0b002;
+}
+.winner {
+    margin-right: 25px;
+    text-align:right;      
+    color: #016dd9;
+}
+#name {
+    margin-right: 25px;
+    text-align:right;   
+    color: #b0b002;
+}
+.msg{
+    height: 15vh;
+    padding-left: 10px;
+    padding-right: 10px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+#message {
+    color: rgb(196, 192, 192);
+    font-size: small;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #0000008c;
+    box-shadow: 0 0 5px #701714;
+}
+  
+#scoreNow {
+    z-index: 2;
+    margin-top: -4rem;
+    color: #f7f7f7;
+    font-size: 50px;
+}
+
+.fas{
+    margin-left: 15px;
+    padding: 10px;
+    color: rgb(255, 217, 0);    
+}
+
+.blue {
+    grid-area: azul;
+    background-image: linear-gradient(to right bottom, #016dd9, #06407b);
+    border-bottom-right-radius: 150%;
+    border-top-right-radius: 10%;
+    border-bottom-left-radius: 10%;    
+}:hover {
+    box-shadow: 0 0 5px #0a2661;
+}
+
+.red {
+    grid-area: vermelho;
+    background-image: linear-gradient(to left bottom, #fe0000, #8b0d0d);
+    border-top-right-radius: 150%;
+    border-bottom-right-radius: 10%;
+    border-top-left-radius: 10%;
+}:hover {
+    box-shadow: 0 0 5px #701714;
+}    
+
+.yellow {
+    grid-area: amarelo;
+    background-image: linear-gradient(to left bottom, #ffff00, #b0b002);
+    border-bottom-left-radius: 150%;
+    border-top-left-radius: 10%;
+    border-bottom-right-radius: 10%;  
+}:hover {
+    box-shadow: 0 0 5px #d3b300;
+}
+
+.green {
+    grid-area: verde;
+    background-image: linear-gradient(to right bottom, #01d936,  #057621);
+    border-top-left-radius: 150%;
+    border-top-right-radius: 10%;
+    border-bottom-left-radius: 10%;  
+}:hover {
+    box-shadow: 0 0 5px #052201;
+}
+
+.selected {
+    animation: acende 0.5s;
+  }  
+  @keyframes acende {
+    50% {
+      opacity: 0.6;
+      box-shadow: 0 0 20px #f7f7f7;          
+    }
+}
+@media only screen and (max-device-width: 600px) {
+    .image-logo {
+        width: 20vw;
+        height: 20vw;
+    }
+}
+@media only screen and (max-device-width: 480px) {
+    .image-logo {
+        width: 30vw;
+        height: 30vw;
+    }
+    #scoreNow {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 0;
+        
+        margin-top: -2rem;
+        
+        color: #f7f7f7;
+        font-size: 50px;
+    }
+}
