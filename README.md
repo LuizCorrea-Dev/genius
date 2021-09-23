@@ -30,8 +30,7 @@
 ## Descrição do projeto 
 
 <p align="justify">
- O objetivo deste projeto é criar um game sinulando o Genius, usando o Javascript, HTML5 e CSS3. 
-  Tecnicamente, foi desenvolvido um clone do brinquedo Genius dos anos 80, usando Keyframes, setTimeout, e @media only para redimencionar em qualquer tela, foi usado o local storage para salvar os recodes dos ganhadores localmente.
+O objetivo deste projeto é criar um game simulando o Genius, usando o Javascript, HTML5 e CSS3. Tecnicamente, foi desenvolvido um clone do brinquedo Genius dos anos 80, usando Keyframes, setTimeout, e @media only para redimensionar em qualquer tela, foi usado o local storage para salvar os recodes dos ganhadores localmente.
   
 </p>
 
